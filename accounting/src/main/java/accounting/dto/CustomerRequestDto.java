@@ -1,6 +1,5 @@
 package accounting.dto;
 
-
 public record CustomerRequestDto(
 		
 		String login, 
