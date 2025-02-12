@@ -1,24 +1,27 @@
 package accounting.service;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
-public interface IManagment <T,R> {
+import accounting.dto.RolesResponseDto;
+
+public interface IManagment <R ,T> {
 
 
-    R registration(R user);
+	R registration(T user);
 
-    R remove(String login);
+	R removeUser(String login);
 
-    R getSupplier(String login);
+	R getUser(String login);
 
     boolean updatePassword(String login, String password);
+    
+    boolean updateUser(String login, T user);
 
     boolean revokeAccount(String login);
 
     boolean activateAccount(String login);
 
-    Set<String> getRoles(String login);
+    RolesResponseDto getRoles(String login);
 
     boolean addRole(String login, String role);
 
@@ -27,6 +30,4 @@ public interface IManagment <T,R> {
     String getPasswordHash(String login);
 
     LocalDateTime getActivationDate(String login);
-
-    R updateSupplierInfo(String login, T request);
 }
